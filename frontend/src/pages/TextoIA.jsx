@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './TextoIA.css'
-import Layout from '../components/Layout'
+import Layout from '../components/layout/Layout'
 import { useAuth } from '../contexts/AuthContext'
 import { PencilSquareIcon } from '@heroicons/react/24/outline'
-import ProgressSidebar from '../components/ProgressSidebar'
+import ProgressSidebar from '../features/content-creation/components/ProgressSidebar'
 
 const questions = [
   {

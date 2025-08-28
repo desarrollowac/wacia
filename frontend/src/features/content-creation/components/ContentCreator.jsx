@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useAuth } from '../contexts/AuthContext'
-import Layout from '../components/Layout'
-import axios from 'axios'
+import { useAuth } from '../../../contexts/AuthContext'
+import Layout from '../../../components/layout/Layout'
+import axios from '../../../lib/axios'
 import toast from 'react-hot-toast'
 import {
   InformationCircleIcon,

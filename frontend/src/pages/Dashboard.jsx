@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 import axios from 'axios';
 import {
   SparklesIcon,
@@ -112,7 +112,7 @@ const FaqItem = ({ faq, isOpen, onToggle }) => {
     return (
       <Layout>
         <div className="flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#BE00FE]"></div>
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-brand-purple"></div>
         </div>
       </Layout>
     );
@@ -161,7 +161,7 @@ const FaqItem = ({ faq, isOpen, onToggle }) => {
                 </div>
                 <Link
                   to={service.link}
-                  className="w-full text-center px-4 py-3 bg-[#BE00FE] text-white font-semibold rounded-lg hover:bg-opacity-90 transition-colors duration-200 shadow-md"
+                  className="w-full text-center px-4 py-3 bg-brand-purple text-white font-semibold rounded-lg hover:bg-opacity-90 transition-colors duration-200 shadow-md"
                 >
                   {service.action}
                 </Link>

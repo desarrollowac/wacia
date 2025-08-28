@@ -7,6 +7,35 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Paleta de colores personalizada
+        brand: {
+          purple: '#BE00FE',
+          'purple-light': '#EAE6F6',
+          'purple-extralight': '#F9F3F9',
+        },
+        accent: {
+          yellow: '#FDBC3D',
+          green: '#DDF6EC',
+        },
+        text: {
+          primary: '#3C3C3C',
+          secondary: '#666666',
+          tertiary: '#707070',
+        },
+        background: {
+          main: '#FBFBFB',
+          alt: '#FCFCFC',
+          subtle: '#F1F1F1',
+          warm: '#FAF8F5',
+        },
+        border: {
+          main: '#D9D9D9',
+          secondary: '#C1C1C1',
+        },
+        white: '#FFFFFF',
+        overlay: 'rgba(0, 0, 0, 0.16)', // Corresponde a #00000029
+
+        // Paletas existentes (se pueden mantener o reemplazar)
         primary: {
           50: '#fdf4ff',
           100: '#fae8ff',

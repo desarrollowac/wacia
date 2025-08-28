@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useAuth } from '../contexts/AuthContext'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
+import { useAuth } from '../../../contexts/AuthContext'
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true)
