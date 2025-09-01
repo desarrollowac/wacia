@@ -1,79 +1,49 @@
-# Cómo Correr el Proyecto WeAreContent
+# Cómo Correr el Proyecto
 
-Esta guía te ayudará a levantar el entorno de desarrollo completo (Backend y Frontend).
+Esta guía explica cómo iniciar y detener los servidores de desarrollo una vez que el proyecto ha sido instalado y configurado.
 
-## Prerrequisitos (¡MUY IMPORTANTE!)
+## Prerrequisitos
 
-Antes de ejecutar cualquier script, es **fundamental** que tengas instaladas y configuradas en tu sistema las siguientes herramientas. Los scripts del proyecto **no instalan** estos programas por ti.
+Asegúrate de haber seguido **todos los pasos** del archivo `install.md` para tu método de instalación elegido (Docker o Manual).
 
-Asegúrate de tener:
+## 1. Iniciar los Servidores
 
-- **PHP** (versión 8.1 o superior)
-- **Composer** (gestor de dependencias de PHP)
-- **Node.js** (versión 18 o superior)
-- **NPM** (generalmente se instala con Node.js)
+Hemos creado scripts que automatizan el proceso de levantar el entorno completo (backend y frontend).
 
-### ¿Cómo sé si los tengo instalados y en el PATH?
+-   En **Windows**: Haz doble clic en el archivo `start.bat` o ejecútalo desde la terminal:
+    ```bash
+    start.bat
+    ```
+-   En **macOS o Linux**: Abre una terminal y ejecuta:
+    ```bash
+    chmod +x start.sh
+    ./start.sh
+    ```
 
-Abre una terminal y ejecuta los siguientes comandos:
+**¿Qué hacen estos scripts?**
 
-```bash
-php --version
-composer --version
-node --version
-npm --version
-```
+1.  Verifican e instalan dependencias si es necesario.
+2.  Ejecutan las migraciones de la base de datos del backend.
+3.  Inician el servidor del backend (Laravel).
+4.  Inician el servidor del frontend (Vite/React).
 
-Si recibes un error como `"comando no reconocido"`, significa que el programa no está instalado o no está en el `PATH` de tu sistema. La causa más común es que PHP no se añade al `PATH` durante la instalación.
+Se abrirán dos nuevas ventanas de terminal, una para cada servidor. **No las cierres**, ya que esto detendrá los servidores.
 
-**Para añadir PHP al PATH en Windows:**
+## 2. Acceder a la Aplicación
 
-1.  Busca "Editar las variables de entorno del sistema" en el menú de inicio.
-2.  Haz clic en el botón "Variables de entorno...".
-3.  En la sección "Variables del sistema", busca y selecciona la variable `Path` y haz clic en "Editar".
-4.  Haz clic en "Nuevo" y pega la ruta a la carpeta donde instalaste PHP (por ejemplo, `C:\php`).
-5.  Haz clic en "Aceptar" en todas las ventanas. 
-6.  **Importante**: Cierra y vuelve a abrir cualquier terminal que tuvieras abierta para que los cambios surtan efecto.
+Una vez que los servidores estén corriendo, puedes acceder a la aplicación:
 
-## 1. Instalación Inicial
+-   **Frontend (Aplicación Web)**: [http://localhost:5173](http://localhost:5173)
+-   **Backend (API)**: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-Si es la primera vez que clonas el proyecto, necesitas instalar todas las dependencias. Para ello, hemos creado scripts que lo hacen todo por ti.
+## 3. Detener los Servidores
 
-- En **Windows**: Abre una terminal y ejecuta:
-  ```bash
-  setup.bat
-  ```
-- En **macOS o Linux**: Abre una terminal y ejecuta:
-  ```bash
-  chmod +x setup.sh
-  ./setup.sh
-  ```
+Para detener la aplicación:
 
-Este proceso puede tardar varios minutos.
+1.  **Cierra las terminales**: Cierra las dos ventanas de terminal que se abrieron con el script `start`.
 
-## 2. Iniciar los Servidores
-
-Para iniciar el proyecto, simplemente ejecuta el script correspondiente a tu sistema operativo. El script se encargará de todo:
-
-1.  Instalará las dependencias del frontend (si es la primera vez).
-2.  Creará la base de datos del backend y ejecutará las migraciones.
-3.  Levantará ambos servidores (backend y frontend).
-
-- En **Windows**: Haz doble clic en el archivo `start.bat` o ejecútalo desde la terminal:
-  ```bash
-  start.bat
-  ```
-- En **macOS o Linux**: Abre una terminal y ejecuta:
-  ```bash
-  chmod +x start.sh
-  ./start.sh
-  ```
-
-Esto abrirá dos nuevas ventanas de terminal, una para el backend de Laravel y otra para el frontend de React.
-
-## 3. Acceder a la Aplicación
-
-- **Frontend (la aplicación web)**: Abre tu navegador y ve a [http://localhost:5173](http://localhost:5173)
-- **Backend (la API)**: Estará corriendo en [http://127.0.0.1:8000](http://127.0.0.1:8000)
-
-¡Y listo! Ya puedes usar la aplicación.
+2.  **Detén los contenedores de Docker** (si usaste ese método de instalación):
+    Ejecuta el siguiente comando en la raíz del proyecto para detener los servicios de MySQL y Redis.
+    ```bash
+    docker-compose down
+    ```
